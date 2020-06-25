@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:urn="http://www.jdesca.com/"
+    xmlns:tns="urn:{serviceName}"name="{serviceName}"
+    targetNamespace="urn:{serviceName}/">
+
+    <!-- TYPE DEFINITION -->
+    <wsdl:types>
+        <xs:schema>
+        </xs:schema>
+    </wsdl:types>
+    <!-- ./TYPE DEFINITION -->
+    
+    
+    <!-- MESSAGES -->
+    <wsdl:message name="request">
+        <wsdl:part element=""
+                   name="parametersIn" />
+    </wsdl:message>
+    <wsdl:message name="response">
+        <wsdl:part element=""
+                   name="" />
+    </wsdl:message>
+    <!-- ./MESSAGES -->
+    
+    <!-- PORTTYPE -->
+    <wsdl:portType name="{serviceName}">
+        
+        <wsdl:operation name="{operationName}">
+            <wsdl:input message="" />
+            <wsdl:output message="" />
+        </wsdl:operation>
+        
+    </wsdl:portType>
+    <!-- PORTTYPE -->
+
+
+    <!-- BINDING -->
+    <wsdl:binding name="{serviceName}SOAP"
+                  type="tns:{serviceName}">
+        <soap:binding style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http" />
+        
+        <wsdl:operation name="operation">
+            <soap:operation
+                soapAction="urn{operation}" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+       
+    </wsdl:binding>
+    <!-- ./BINDING -->
+
+    <wsdl:service name="{serviceName}">
+        <wsdl:port binding="tns:{serviceName}SOAP"
+                   name="{serviceName}SOAP">
+            <soap:address
+                location="{URL_ENDPOINT}" />
+        </wsdl:port>
+    </wsdl:service>
+
+
+</wsdl:definitions>
